@@ -1,0 +1,12 @@
+.logo-title {
+    max-height: 100px;
+}
+
+tr {
+    vertical-align: middle;
+}
+
+ul.pagination {
+    justify-content: center;
+    margin-top: 1.5rem;
+}
