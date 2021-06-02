@@ -29,8 +29,9 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
         $urls = Url::all();
         $expires_at_timestamp = mktime(date('H'), date('i'), date('s'), date('m'), date('d') + 3, date('y'));
+        $current_timestamp = mktime(date('H'), date('i'), date('s'), date('m'), date('d'), date('y'));
         foreach ($urls as $url) {
-            if (strtotime($url->expires_at) > $expires_at_timestamp) {
+            if (strtotime($url->expires_at) > $expires_at_timestamp || strtotime($url->expires_at) < $current_timestamp) {
                 $url->delete();
             }
         }
